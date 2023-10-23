@@ -19,13 +19,13 @@ export default function Formdata(props) {
         <FormInput
           id="current-savings"
           label="Current Savings ($)"
-          onChangeHandler={(e) => setCurrSavings(e.target.value)}
+          onChangeHandler={(e) => setCurrSavings(Number(e.target.value))}
           value={currSavings}
         />
         <FormInput
           id="yearly-contribution"
           label="Yearly Savings ($)"
-          onChangeHandler={(e) => setYearlySavings(e.target.value)}
+          onChangeHandler={(e) => setYearlySavings(Number(e.target.value))}
           value={yearlySavings}
         />
       </div>
@@ -33,13 +33,13 @@ export default function Formdata(props) {
         <FormInput
           id="expected-return"
           label="Expected Interest (%, per year)"
-          onChangeHandler={(e) => setExpInterest(e.target.value)}
+          onChangeHandler={(e) => setExpInterest(Number(e.target.value))}
           value={expInterest}
         />
         <FormInput
           id="duration"
           label="Investment Duration (years)"
-          onChangeHandler={(e) => setDuration(e.target.value)}
+          onChangeHandler={(e) => setDuration(Number(e.target.value))}
           value={duration}
         />
       </div>
