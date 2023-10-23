@@ -44,9 +44,19 @@ function App() {
     <div>
       <Header />
       <Formdata onSave={onSaveHandler} />
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-      <Table />
+      {
+        !userInput && (
+          <p style={{ textAlign: "center" }}>Data not available yet</p>
+        ) /* Todo: Show below table conditionally (only once result data is available) */
+      }
+      {
+        userInput && (
+          <Table
+            data={yearlyData}
+            initialInvestment={userInput["currSavings"]}
+          />
+        ) /* Show fallback text if no data is available */
+      }
     </div>
   );
 }
