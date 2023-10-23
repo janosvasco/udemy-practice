@@ -1,4 +1,11 @@
-export default function Table() {
+export default function Table(props) {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <table className="result">
       <thead>
@@ -11,13 +18,25 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>YEAR NUMBER</td>
-          <td>TOTAL SAVINGS END OF YEAR</td>
-          <td>INTEREST GAINED IN YEAR</td>
-          <td>TOTAL INTEREST GAINED</td>
-          <td>TOTAL INVESTED CAPITAL</td>
-        </tr>
+        {props.data.map((year) => (
+          <tr key={year.year}>
+            <td>{year.year}</td>
+            <td>{formatter.format(year.savingsEndOfYear)}</td>
+            <td>{formatter.format(year.yearlyInterest)}</td>
+            <td>
+              {formatter.format(
+                year.savingsEndOfYear -
+                  props.initialInvestment -
+                  year.yearlyContribution * year.year
+              )}
+            </td>
+            <td>
+              {formatter.format(
+                props.initialInvestment + year.yearlyContribution * year.year
+              )}
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
