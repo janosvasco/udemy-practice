@@ -1,27 +1,24 @@
+import Input from "./Input";
+
 export default function NewProject() {
   return (
-    <div>
-      <menu>
+    <div className="w-[35rem] mt-16">
+      <menu className="flex items-center justify-end gap-4 my-4">
         <li>
-          <buttton>Cancel</buttton>
+          <buttton className="text-stone-800 hover:text-stone-950">
+            Cancel
+          </buttton>
         </li>
         <li>
-          <buttton>Save</buttton>
+          <buttton className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">
+            Save
+          </buttton>
         </li>
       </menu>
       <div>
-        <p>
-          <label>Title</label>
-          <input />
-        </p>
-        <p>
-          <label>Description</label>
-          <textarea />
-        </p>
-        <p>
-          <label>Due Date</label>
-          <input />
-        </p>
+        <Input label="Title" />
+        <Input label="Description" textarea />
+        <Input label="Due Date" />
       </div>
     </div>
   );
