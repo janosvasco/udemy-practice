@@ -47,3 +47,12 @@ course = 12341; */
 let course: string | number = "React - The Complete Guide";
 
 course = 12341;
+
+// Functions & types
+
+function add(
+  a: number,
+  b: number
+) /* :number => referring to the type of the return value */ {
+  return a + b;
+}
